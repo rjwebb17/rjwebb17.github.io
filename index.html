@@ -3,102 +3,239 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RJ Webb | Home</title>
+    <title>RJ Webb | MySpace Throwback</title>
     <style>
       :root {
-        color-scheme: light dark;
-        --bg: #0f172a;
-        --card: #111827;
-        --text: #e2e8f0;
-        --muted: #94a3b8;
-        --accent: #38bdf8;
+        color-scheme: light;
+        --bg: #061c0d;
+        --panel: #0d3b2c;
+        --panel-light: #0f5b6b;
+        --text: #e6fff4;
+        --muted: #c0f2e0;
+        --accent: #38f59c;
+        --accent-dark: #1a63ff;
+        --border: #61f2ff;
       }
 
       body {
         margin: 0;
-        font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-        background: radial-gradient(circle at top, #1e293b, var(--bg));
+        font-family: "Verdana", "Tahoma", "Trebuchet MS", sans-serif;
+        background: repeating-linear-gradient(
+            135deg,
+            rgba(21, 77, 64, 0.4) 0,
+            rgba(21, 77, 64, 0.4) 12px,
+            rgba(4, 38, 56, 0.4) 12px,
+            rgba(4, 38, 56, 0.4) 24px
+          ),
+          radial-gradient(circle at top, #0e5f44, var(--bg));
         color: var(--text);
         min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 32px;
+        padding: 24px 16px 48px;
       }
 
-      .card {
-        max-width: 720px;
-        background: rgba(17, 24, 39, 0.9);
-        border-radius: 20px;
-        padding: 36px;
-        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.6);
-        border: 1px solid rgba(148, 163, 184, 0.2);
+      .shell {
+        max-width: 980px;
+        margin: 0 auto;
+        border: 3px solid var(--border);
+        background: rgba(6, 22, 16, 0.85);
+        box-shadow: 0 18px 40px rgba(2, 12, 14, 0.65);
+      }
+
+      .top-bar {
+        background: linear-gradient(90deg, #0a8f5a, #0c5bd1);
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+      }
+
+      .top-bar span {
+        color: #00130a;
+        background: var(--accent);
+        padding: 4px 10px;
+        border-radius: 999px;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 2.1fr;
+        gap: 16px;
+        padding: 18px;
+      }
+
+      .panel {
+        background: var(--panel);
+        border: 2px solid var(--border);
+        padding: 14px;
+      }
+
+      .profile-card {
+        text-align: center;
+      }
+
+      .profile-photo {
+        width: 140px;
+        height: 140px;
+        border-radius: 14px;
+        border: 3px solid var(--accent);
+        background: linear-gradient(135deg, #2cf28e, #1a63ff);
+        display: grid;
+        place-items: center;
+        font-size: 2.2rem;
+        margin: 0 auto 12px;
       }
 
       h1 {
-        margin: 0 0 8px;
-        font-size: clamp(2rem, 4vw, 3rem);
+        margin: 6px 0 4px;
+        font-size: 1.8rem;
       }
 
-      p {
-        margin: 0 0 20px;
-        line-height: 1.6;
+      .status {
+        font-size: 0.9rem;
         color: var(--muted);
       }
 
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
+      .section-title {
+        background: var(--panel-light);
+        padding: 6px 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        border: 2px solid var(--border);
+        margin: 0 0 10px;
+        font-size: 0.85rem;
       }
 
-      .actions a {
-        text-decoration: none;
-        padding: 10px 18px;
-        border-radius: 999px;
-        font-weight: 600;
-        border: 1px solid transparent;
-        transition: all 0.2s ease;
+      .about p {
+        margin: 0 0 12px;
+        line-height: 1.5;
       }
 
-      .primary {
-        background: var(--accent);
-        color: #0f172a;
+      .details {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
       }
 
-      .ghost {
-        border-color: rgba(148, 163, 184, 0.6);
-        color: var(--text);
-      }
-
-      .actions a:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 16px rgba(56, 189, 248, 0.3);
-      }
-
-      footer {
-        margin-top: 28px;
+      .details li {
+        padding: 6px 0;
+        border-bottom: 1px dashed rgba(97, 242, 255, 0.4);
         font-size: 0.9rem;
-        color: rgba(148, 163, 184, 0.8);
+      }
+
+      .friends-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .friend {
+        background: rgba(5, 40, 45, 0.7);
+        border: 1px solid rgba(97, 242, 255, 0.7);
+        padding: 8px;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      .friend span {
+        display: block;
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+      }
+
+      .blog-entry {
+        background: rgba(6, 24, 25, 0.6);
+        border-left: 4px solid var(--accent);
+        padding: 10px 12px;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+      }
+
+      .footer {
+        padding: 12px 16px;
+        background: #02160f;
+        font-size: 0.85rem;
+        text-align: center;
+        color: var(--muted);
+        border-top: 2px solid var(--border);
+      }
+
+      @media (max-width: 860px) {
+        .content {
+          grid-template-columns: 1fr;
+        }
+
+        .friends-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
     </style>
   </head>
   <body>
-    <main class="card">
-      <h1>Hi, I&apos;m RJ Webb 👋</h1>
-      <p>
-        Welcome to my GitHub Pages site. I&apos;m a developer focused on building thoughtful
-        products, clean UI, and reliable systems.
-      </p>
-      <p>
-        This space will showcase projects, writing, and ways to connect. Until then,
-        feel free to explore my work.
-      </p>
-      <div class="actions">
-        <a class="primary" href="https://github.com/rjwebb17">View GitHub</a>
-        <a class="ghost" href="mailto:hello@example.com">Say Hello</a>
+    <main class="shell">
+      <div class="top-bar">
+        <div>RJ Webb&apos;s Space</div>
+        <span>Online Now</span>
       </div>
-      <footer>© 2025 RJ Webb • Built with GitHub Pages</footer>
+      <div class="content">
+        <section class="panel profile-card">
+          <div class="profile-photo">🦚</div>
+          <h1>RJ Webb</h1>
+          <p class="status">"Coding in neon and nostalgia."</p>
+          <ul class="details">
+            <li><strong>Display Name:</strong> RJW3BB</li>
+            <li><strong>Profile Views:</strong> 42,008</li>
+            <li><strong>Mood:</strong> Emerald Chill</li>
+            <li><strong>Currently:</strong> Listening to synthwave</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="panel about">
+            <div class="section-title">About Me</div>
+            <p>
+              Welcome to my retro corner of the web. Expect green + blue vibes, glittery
+              gradients, and a totally 2005-era layout.
+            </p>
+            <p>
+              Building modern tools with old-school heart. Drop a comment, check the top
+              eight, and stay awhile.
+            </p>
+          </div>
+
+          <div class="panel" style="margin-top: 16px;">
+            <div class="section-title">Top 8 Bird Friends</div>
+            <div class="friends-grid">
+              <div class="friend"><span>🦜</span>African Grey</div>
+              <div class="friend"><span>🦉</span>Snowy Owl</div>
+              <div class="friend"><span>🦩</span>Flamingo</div>
+              <div class="friend"><span>🦢</span>Mute Swan</div>
+              <div class="friend"><span>🦚</span>Peacock</div>
+              <div class="friend"><span>🪶</span>Golden Eagle</div>
+              <div class="friend"><span>🦅</span>Harpy Eagle</div>
+              <div class="friend"><span>🦤</span>Dodo</div>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-top: 16px;">
+            <div class="section-title">Latest Blog</div>
+            <div class="blog-entry">
+              <strong>05/12/25</strong> — Swapped the dark theme for a green/blue neon
+              palette and brought back the MySpace vibes.
+            </div>
+            <div class="blog-entry">
+              <strong>05/02/25</strong> — Curated the top eight with the coolest birds in
+              the sky.
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="footer">© 2025 RJ Webb • Best viewed on a CRT monitor</div>
     </main>
   </body>
 </html>
