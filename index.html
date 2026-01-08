@@ -3,116 +3,114 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RJ Webb | MySpace Throwback</title>
+    <title>RJ Webb | Academic Profile</title>
     <style>
       :root {
         color-scheme: light;
-        --bg: #061c0d;
-        --panel: #0d3b2c;
-        --panel-light: #0f5b6b;
-        --text: #e6fff4;
-        --muted: #c0f2e0;
-        --accent: #38f59c;
-        --accent-dark: #1a63ff;
-        --border: #61f2ff;
+        --bg: #04070f;
+        --surface: #0b1220;
+        --surface-light: #111a2e;
+        --text: #f5f7fb;
+        --muted: #c2c9d6;
+        --accent: #2f4bff;
+        --accent-dark: #1f36b3;
+        --border: #2d4d91;
       }
 
       body {
         margin: 0;
-        font-family: "Verdana", "Tahoma", "Trebuchet MS", sans-serif;
-        background: repeating-linear-gradient(
-            135deg,
-            rgba(21, 77, 64, 0.4) 0,
-            rgba(21, 77, 64, 0.4) 12px,
-            rgba(4, 38, 56, 0.4) 12px,
-            rgba(4, 38, 56, 0.4) 24px
-          ),
-          radial-gradient(circle at top, #0e5f44, var(--bg));
+        font-family: "Helvetica Neue", "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: linear-gradient(160deg, #050913, #0d1222 45%, #050913);
         color: var(--text);
         min-height: 100vh;
-        padding: 24px 16px 48px;
+        padding: 40px 16px 60px;
       }
 
       .shell {
-        max-width: 980px;
+        max-width: 1040px;
         margin: 0 auto;
-        border: 3px solid var(--border);
-        background: rgba(6, 22, 16, 0.85);
-        box-shadow: 0 18px 40px rgba(2, 12, 14, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(8, 14, 26, 0.92);
+        box-shadow: 0 24px 60px rgba(2, 6, 18, 0.75);
+        border-radius: 16px;
+        overflow: hidden;
       }
 
       .top-bar {
-        background: linear-gradient(90deg, #0a8f5a, #0c5bd1);
-        padding: 10px 16px;
+        background: linear-gradient(90deg, #0c1938, #1b2b5c);
+        padding: 18px 28px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.4px;
       }
 
       .top-bar span {
-        color: #00130a;
-        background: var(--accent);
-        padding: 4px 10px;
+        color: var(--text);
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 6px 12px;
         border-radius: 999px;
       }
 
       .content {
         display: grid;
-        grid-template-columns: 1fr 2.1fr;
-        gap: 16px;
-        padding: 18px;
+        grid-template-columns: 1fr 1.8fr;
+        gap: 24px;
+        padding: 28px;
       }
 
       .panel {
-        background: var(--panel);
-        border: 2px solid var(--border);
-        padding: 14px;
+        background: var(--surface);
+        border: 1px solid rgba(47, 75, 255, 0.18);
+        padding: 20px;
+        border-radius: 12px;
       }
 
       .profile-card {
-        text-align: center;
+        display: grid;
+        gap: 16px;
       }
 
       .profile-photo {
-        width: 140px;
-        height: 140px;
-        border-radius: 14px;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
         border: 3px solid var(--accent);
-        background: linear-gradient(135deg, #2cf28e, #1a63ff);
+        background: linear-gradient(135deg, #2f4bff, #101827);
         display: grid;
         place-items: center;
-        font-size: 2.2rem;
-        margin: 0 auto 12px;
-      }
-
-      h1 {
-        margin: 6px 0 4px;
         font-size: 1.8rem;
       }
 
+      h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
       .status {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: var(--muted);
       }
 
       .section-title {
-        background: var(--panel-light);
-        padding: 6px 10px;
+        background: var(--surface-light);
+        padding: 8px 12px;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 700;
-        border: 2px solid var(--border);
-        margin: 0 0 10px;
-        font-size: 0.85rem;
+        letter-spacing: 0.9px;
+        font-weight: 600;
+        border: 1px solid rgba(47, 75, 255, 0.3);
+        margin: 0 0 12px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        border-radius: 10px;
       }
 
-      .about p {
-        margin: 0 0 12px;
-        line-height: 1.5;
+      .about p,
+      .highlights p {
+        margin: 0 0 14px;
+        line-height: 1.6;
       }
 
       .details {
@@ -123,46 +121,44 @@
       }
 
       .details li {
-        padding: 6px 0;
-        border-bottom: 1px dashed rgba(97, 242, 255, 0.4);
-        font-size: 0.9rem;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.95rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
       }
 
-      .friends-grid {
+      .detail-label {
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .detail-value {
+        text-align: right;
+        font-weight: 600;
+      }
+
+      .highlight-list {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 10px;
       }
 
-      .friend {
-        background: rgba(5, 40, 45, 0.7);
-        border: 1px solid rgba(97, 242, 255, 0.7);
-        padding: 8px;
-        text-align: center;
-        font-size: 0.85rem;
-      }
-
-      .friend span {
-        display: block;
-        font-size: 1.4rem;
-        margin-bottom: 6px;
-      }
-
-      .blog-entry {
-        background: rgba(6, 24, 25, 0.6);
-        border-left: 4px solid var(--accent);
-        padding: 10px 12px;
-        margin-bottom: 10px;
-        font-size: 0.9rem;
+      .highlight-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(47, 75, 255, 0.2);
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-size: 0.95rem;
       }
 
       .footer {
-        padding: 12px 16px;
-        background: #02160f;
+        padding: 16px 24px;
+        background: #070b15;
         font-size: 0.85rem;
         text-align: center;
         color: var(--muted);
-        border-top: 2px solid var(--border);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
 
       @media (max-width: 860px) {
@@ -170,72 +166,93 @@
           grid-template-columns: 1fr;
         }
 
-        .friends-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
       }
     </style>
   </head>
   <body>
     <main class="shell">
       <div class="top-bar">
-        <div>RJ Webb&apos;s Space</div>
-        <span>Online Now</span>
+        <div>RJ Webb, Ph.D.</div>
+        <span>Academic Profile</span>
       </div>
       <div class="content">
         <section class="panel profile-card">
-          <div class="profile-photo">🦚</div>
-          <h1>RJ Webb</h1>
-          <p class="status">"Coding in neon and nostalgia."</p>
+          <div class="profile-photo">🎓</div>
+          <div>
+            <h1>RJ Webb</h1>
+            <p class="status">Associate Professor of Computer Science</p>
+          </div>
           <ul class="details">
-            <li><strong>Display Name:</strong> RJW3BB</li>
-            <li><strong>Profile Views:</strong> 42,008</li>
-            <li><strong>Mood:</strong> Emerald Chill</li>
-            <li><strong>Currently:</strong> Listening to synthwave</li>
+            <li>
+              <span class="detail-label">Institution</span>
+              <span class="detail-value">Cobalt State University</span>
+            </li>
+            <li>
+              <span class="detail-label">Research Focus</span>
+              <span class="detail-value">Human-centered AI</span>
+            </li>
+            <li>
+              <span class="detail-label">Office Hours</span>
+              <span class="detail-value">Mon & Wed, 2–4 PM</span>
+            </li>
+            <li>
+              <span class="detail-label">Contact</span>
+              <span class="detail-value">rjwebb@cobaltu.edu</span>
+            </li>
           </ul>
         </section>
 
         <section>
           <div class="panel about">
-            <div class="section-title">About Me</div>
+            <div class="section-title">Biography</div>
             <p>
-              Welcome to my retro corner of the web. Expect green + blue vibes, glittery
-              gradients, and a totally 2005-era layout.
+              I study how people collaborate with intelligent systems, with an emphasis on
+              transparency, trust, and equitable outcomes. My work bridges theory and practice,
+              translating research into tools that support learning, health, and civic life.
             </p>
             <p>
-              Building modern tools with old-school heart. Drop a comment, check the top
-              eight, and stay awhile.
+              I advise graduate students in the Interactive Computing Lab and teach courses
+              on machine learning, human-computer interaction, and ethics in computing.
             </p>
           </div>
 
-          <div class="panel" style="margin-top: 16px;">
-            <div class="section-title">Top 8 Bird Friends</div>
-            <div class="friends-grid">
-              <div class="friend"><span>🦜</span>African Grey</div>
-              <div class="friend"><span>🦉</span>Snowy Owl</div>
-              <div class="friend"><span>🦩</span>Flamingo</div>
-              <div class="friend"><span>🦢</span>Mute Swan</div>
-              <div class="friend"><span>🦚</span>Peacock</div>
-              <div class="friend"><span>🪶</span>Golden Eagle</div>
-              <div class="friend"><span>🦅</span>Harpy Eagle</div>
-              <div class="friend"><span>🦤</span>Dodo</div>
+          <div class="panel highlights" style="margin-top: 16px;">
+            <div class="section-title">Research Highlights</div>
+            <div class="highlight-list">
+              <div class="highlight-card">
+                <strong>Adaptive Learning Systems:</strong> Designing AI tutors that respond to
+                student needs while maintaining transparency.
+              </div>
+              <div class="highlight-card">
+                <strong>Responsible AI:</strong> Auditing models for fairness and developing
+                governance frameworks for public-sector deployments.
+              </div>
+              <div class="highlight-card">
+                <strong>Community Partnerships:</strong> Collaborating with local organizations
+                to co-create data-driven services.
+              </div>
             </div>
           </div>
 
           <div class="panel" style="margin-top: 16px;">
-            <div class="section-title">Latest Blog</div>
-            <div class="blog-entry">
-              <strong>05/12/25</strong> — Swapped the dark theme for a green/blue neon
-              palette and brought back the MySpace vibes.
-            </div>
-            <div class="blog-entry">
-              <strong>05/02/25</strong> — Curated the top eight with the coolest birds in
-              the sky.
+            <div class="section-title">Selected Publications</div>
+            <div class="highlight-list">
+              <div class="highlight-card">
+                Webb, R. (2024). <em>Interpretable AI for Human-Centered Decision Support</em>.
+                Journal of Applied Computing.
+              </div>
+              <div class="highlight-card">
+                Webb, R., &amp; Patel, S. (2023). <em>Designing Trustworthy ML Interfaces</em>.
+                Proceedings of CHI.
+              </div>
+              <div class="highlight-card">
+                Webb, R. (2022). <em>Equity Metrics for Civic Algorithms</em>. ACM CSCW.
+              </div>
             </div>
           </div>
         </section>
       </div>
-      <div class="footer">© 2025 RJ Webb • Best viewed on a CRT monitor</div>
+      <div class="footer">© 2025 RJ Webb • Academic Profile</div>
     </main>
   </body>
 </html>
