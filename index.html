@@ -3,102 +3,256 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RJ Webb | Home</title>
+    <title>RJ Webb | Academic Profile</title>
     <style>
       :root {
-        color-scheme: light dark;
-        --bg: #0f172a;
-        --card: #111827;
-        --text: #e2e8f0;
-        --muted: #94a3b8;
-        --accent: #38bdf8;
+        color-scheme: light;
+        --bg: #04070f;
+        --surface: #0b1220;
+        --surface-light: #111a2e;
+        --text: #f5f7fb;
+        --muted: #c2c9d6;
+        --accent: #2f4bff;
+        --accent-dark: #1f36b3;
+        --border: #2d4d91;
       }
 
       body {
         margin: 0;
-        font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-        background: radial-gradient(circle at top, #1e293b, var(--bg));
+        font-family: "Helvetica Neue", "Segoe UI", system-ui, -apple-system, sans-serif;
+        background: linear-gradient(160deg, #050913, #0d1222 45%, #050913);
         color: var(--text);
         min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 32px;
+        padding: 40px 16px 60px;
       }
 
-      .card {
-        max-width: 720px;
-        background: rgba(17, 24, 39, 0.9);
-        border-radius: 20px;
-        padding: 36px;
-        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.6);
-        border: 1px solid rgba(148, 163, 184, 0.2);
+      .shell {
+        max-width: 1040px;
+        margin: 0 auto;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(8, 14, 26, 0.92);
+        box-shadow: 0 24px 60px rgba(2, 6, 18, 0.75);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .top-bar {
+        background: linear-gradient(90deg, #0c1938, #1b2b5c);
+        padding: 18px 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+      }
+
+      .top-bar span {
+        color: var(--text);
+        font-size: 0.9rem;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 6px 12px;
+        border-radius: 999px;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1.8fr;
+        gap: 24px;
+        padding: 28px;
+      }
+
+      .panel {
+        background: var(--surface);
+        border: 1px solid rgba(47, 75, 255, 0.18);
+        padding: 20px;
+        border-radius: 12px;
+      }
+
+      .profile-card {
+        display: grid;
+        gap: 16px;
+      }
+
+      .profile-photo {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        border: 3px solid var(--accent);
+        background: linear-gradient(135deg, #2f4bff, #101827);
+        display: grid;
+        place-items: center;
+        font-size: 1.8rem;
       }
 
       h1 {
-        margin: 0 0 8px;
-        font-size: clamp(2rem, 4vw, 3rem);
+        margin: 0;
+        font-size: 2rem;
       }
 
-      p {
-        margin: 0 0 20px;
-        line-height: 1.6;
+      .status {
+        font-size: 0.95rem;
         color: var(--muted);
       }
 
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-
-      .actions a {
-        text-decoration: none;
-        padding: 10px 18px;
-        border-radius: 999px;
+      .section-title {
+        background: var(--surface-light);
+        padding: 8px 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.9px;
         font-weight: 600;
-        border: 1px solid transparent;
-        transition: all 0.2s ease;
+        border: 1px solid rgba(47, 75, 255, 0.3);
+        margin: 0 0 12px;
+        font-size: 0.8rem;
+        color: var(--muted);
+        border-radius: 10px;
       }
 
-      .primary {
-        background: var(--accent);
-        color: #0f172a;
+      .about p,
+      .highlights p {
+        margin: 0 0 14px;
+        line-height: 1.6;
       }
 
-      .ghost {
-        border-color: rgba(148, 163, 184, 0.6);
-        color: var(--text);
+      .details {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
       }
 
-      .actions a:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 16px rgba(56, 189, 248, 0.3);
+      .details li {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.95rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
       }
 
-      footer {
-        margin-top: 28px;
-        font-size: 0.9rem;
-        color: rgba(148, 163, 184, 0.8);
+      .detail-label {
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      .detail-value {
+        text-align: right;
+        font-weight: 600;
+      }
+
+      .highlight-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .highlight-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(47, 75, 255, 0.2);
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-size: 0.95rem;
+      }
+
+      .footer {
+        padding: 16px 24px;
+        background: #070b15;
+        font-size: 0.85rem;
+        text-align: center;
+        color: var(--muted);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      @media (max-width: 860px) {
+        .content {
+          grid-template-columns: 1fr;
+        }
+
       }
     </style>
   </head>
   <body>
-    <main class="card">
-      <h1>Hi, I&apos;m RJ Webb 👋</h1>
-      <p>
-        Welcome to my GitHub Pages site. I&apos;m a developer focused on building thoughtful
-        products, clean UI, and reliable systems.
-      </p>
-      <p>
-        This space will showcase projects, writing, and ways to connect. Until then,
-        feel free to explore my work.
-      </p>
-      <div class="actions">
-        <a class="primary" href="https://github.com/rjwebb17">View GitHub</a>
-        <a class="ghost" href="mailto:hello@example.com">Say Hello</a>
+    <main class="shell">
+      <div class="top-bar">
+        <div>RJ Webb, Ph.D.</div>
+        <span>Academic Profile</span>
       </div>
-      <footer>© 2025 RJ Webb • Built with GitHub Pages</footer>
+      <div class="content">
+        <section class="panel profile-card">
+          <div class="profile-photo">🎓</div>
+          <div>
+            <h1>RJ Webb</h1>
+            <p class="status">Associate Professor of Computer Science</p>
+          </div>
+          <ul class="details">
+            <li>
+              <span class="detail-label">Institution</span>
+              <span class="detail-value">Cobalt State University</span>
+            </li>
+            <li>
+              <span class="detail-label">Research Focus</span>
+              <span class="detail-value">Human-centered AI</span>
+            </li>
+            <li>
+              <span class="detail-label">Office Hours</span>
+              <span class="detail-value">Mon & Wed, 2–4 PM</span>
+            </li>
+            <li>
+              <span class="detail-label">Contact</span>
+              <span class="detail-value">rjwebb@cobaltu.edu</span>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="panel about">
+            <div class="section-title">Biography</div>
+            <p>
+              I study how people collaborate with intelligent systems, with an emphasis on
+              transparency, trust, and equitable outcomes. My work bridges theory and practice,
+              translating research into tools that support learning, health, and civic life.
+            </p>
+            <p>
+              I advise graduate students in the Interactive Computing Lab and teach courses
+              on machine learning, human-computer interaction, and ethics in computing.
+            </p>
+          </div>
+
+          <div class="panel highlights" style="margin-top: 16px;">
+            <div class="section-title">Research Highlights</div>
+            <div class="highlight-list">
+              <div class="highlight-card">
+                <strong>Adaptive Learning Systems:</strong> Designing AI tutors that respond to
+                student needs while maintaining transparency.
+              </div>
+              <div class="highlight-card">
+                <strong>Responsible AI:</strong> Auditing models for fairness and developing
+                governance frameworks for public-sector deployments.
+              </div>
+              <div class="highlight-card">
+                <strong>Community Partnerships:</strong> Collaborating with local organizations
+                to co-create data-driven services.
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-top: 16px;">
+            <div class="section-title">Selected Publications</div>
+            <div class="highlight-list">
+              <div class="highlight-card">
+                Webb, R. (2024). <em>Interpretable AI for Human-Centered Decision Support</em>.
+                Journal of Applied Computing.
+              </div>
+              <div class="highlight-card">
+                Webb, R., &amp; Patel, S. (2023). <em>Designing Trustworthy ML Interfaces</em>.
+                Proceedings of CHI.
+              </div>
+              <div class="highlight-card">
+                Webb, R. (2022). <em>Equity Metrics for Civic Algorithms</em>. ACM CSCW.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="footer">© 2025 RJ Webb • Academic Profile</div>
     </main>
   </body>
 </html>
